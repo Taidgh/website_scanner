@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>Results</title>
+<head>
+    <!-- <link href="style.css" rel="stylesheet" type="text/css">  -->
+    <link href="{{ url_for('static',filename = 'styleindex.css')}}" rel="stylesheet" type="text/css"> 
+    <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Source+Sans+Pro|Titan+One" rel="stylesheet">        
+</head>
+<body style="background:#1f2739;">
+    <h1 class="resulth1">Scan Results</h1>
+    <div class="resultdiv">
+        <table class="resulttable">
+            {% for key,value in results['nets'][0].items() %}
+            <tr>
+                <td>{{key}}</td>
+                <td>{{value}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div> 
+<div class="btndiv">
+    <a href="{{ url_for('index') }}"><img src="../static/home.png" class="home" ></a>
+</div> 
+</body>
+</html>

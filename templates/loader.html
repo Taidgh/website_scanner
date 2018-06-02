@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<title>Loading</title>
+<head>
+	<link href="{{ url_for('static',filename = 'styleindex.css')}}" rel="stylesheet" type="text/css"> 
+	<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">  
+</head>
+<body class="loaderbody">
+	<div class="loading" id = "load"></div>
+	<span class="loader"><span class="loader-inner"></span></span>
+	<script>
+		function makeRequest() 
+		{
+			var xhttp = new XMLHttpRequest();
+			xhttp.open("GET", "/fuzzer/nmout/{{ fuzz_key }}", true);
+			xhttp.send();
+			xhttp.onreadystatechange = function() {
+				console.log(xhttp.responseText)
+				data = JSON.parse(xhttp.responseText)
+				if(data.valid === false) 
+				{
+					clearTimeout(timer_id)
+					return;
+				}
+				if(data.progress=='finished'){
+					window.location.href='/show_result/{{ fuzz_key }}'
+				}
+				document.getElementById("load").innerHTML = 'Progress: ' + data.progress + "%<br />";
+				document.getElementById("load").innerHTML+="fuzzing for " + data.current + "\n";  
+				
+			};		
+		};
+		var timer_id = setInterval(makeRequest, 100);
+	</script>
+</body>
+
+</html>

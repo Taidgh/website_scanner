@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <link href="{{ url_for('static',filename = 'styleindex.css')}}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Quicksand" rel="stylesheet"> 
+</head>
+<title>Vulnerability Scanner</title>
+<body>
+    <div class="search">
+        <div class="over_search">
+            <h2 class="search1">Scan Your Website</h2>
+            <div class="form1">
+                
+                <form action="{{ url_for('index')}}" method="POST">
+                    <input name="website" type="text" value="Enter Website" onfocus="this.value=''" class = "input">
+                    <select name="options" class="options">
+                        <option value="tcp">TCP</option>
+                        <option value="udp">UDP</option>
+                        <option value="whois">WhoIS</option>
+                        <option value="fuzz">Fuzzer</option>
+                    </select>
+                    <input type="submit" value="scan" class="scan">
+                </form>
+                
+            </div>
+        </div>       
+    </div>
+    <div class="desc">
+        <div class="icons">
+            <div class="pic"><img src="../static/port.jpg"></div>                                                                  
+            <div class="para">
+                <h2 class="deshead">Port Scanning</h2>
+                <hr>
+                <p>Checks for the open tcp/udp ports in your website
+                </p>
+            </div>  
+        </div>
+        <div class="icons">
+            <div class="pic"><img src="../static/whois.png"></div>                                             
+            <div class="para">
+                <h2 class="deshead">Who Is Lookup</h2>
+                <hr>
+                <p>Info about domain name registration,<br>and delegation details.
+                </p>                             
+            </div>     
+        </div> 
+        <div class="icons">
+            <div class="pic"><img src="../static/check-list.png"></div>                     
+            <div class="para">
+                <h2 class="deshead">URL Fuzzing</h2>
+                <hr>
+                <p>Finds the hidden files and directories on a web server
+                </p>                           
+            </div>     
+        </div>      
+    </div>
+    <!-- <div class="btndiv">
+        <a href="{{ url_for('index') }}"><img src="../static/home.png" class="home" ></a>
+    </div>        -->
+    <!-- <script>
+        var elem = document.getElementsByClassName("options");
+        var selected = elem.options[elem.selectedIndedx].value;
+        var str = document.getElementsByClassName('input').value
+        if(selected=='fuzz'){
+            if(str!='Enter Website'){
+                if(!str.startsWith('http')
+                document.getElementsByClassName('input').setAttribute('value','http://'+str);
+            }
+        }   
+    </script>    -->
+</body>
+</html>
