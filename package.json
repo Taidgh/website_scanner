@@ -1,0 +1,15 @@
+{
+  "name": "dafuzz",
+  "version": "1.0.0",
+  "main": "templates/index.html",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.py"
+  },
+  "dependencies": {
+    "flask": "~1.1.1",
+    "python-libnmap": "~0.2",
+    "ipwhois": "~0.8.1",
+    "cowpy":"~1.0.3",
+  }
+}
