@@ -2,7 +2,6 @@ import requests
 from flask import Flask, session, render_template
 import threading
 
-
 class UrlFuzzer(threading.Thread):
 
     def __init__(self, website):
